@@ -11,10 +11,11 @@
 /* ************************************************************************** */
 
 #include <stdlib.h>
+#include <string.h>
 
-void	*ft_memset(void *s, int c, int n)
+void	*ft_memset(void *s, int c, size_t n)
 {
-	int		i;
+	size_t	i;
 	char	*str;
 	char	car;
 	

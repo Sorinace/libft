@@ -9,8 +9,8 @@ int	main (void)
 	char	y[30];
 	char	*z;
 	
-	strcpy(x, "ft_strlen = Ok");
-	if (ft_strlen("sorin") == strlen("sorin"))
+	ft_strcpy(x, "ft_strlen = Ok");
+	if (ft_strlen("sorin") == ft_strlen("sorin"))
 		ft_putstr(x);
 	ft_putchar('\n');
 	
@@ -52,9 +52,16 @@ int	main (void)
 	ft_putstr(x + 9);
 	ft_putchar('\n');
 	
-	strcpy(x, "Sorin 5");
-	strcpy(y, "Sorin 2");
-	printf("rezultatul este %d sau este %d\n", memcmp(x, y, 7), ft_memcmp(x, y, 7));
+	ft_strcpy(x, "Sorin 5");
+	ft_strcpy(y, "Sorin 2");
+	printf("Rezultatul ft_memcmp() este %d sau este %d\n", memcmp(x, y, 7), ft_memcmp(x, y, 7));
+	
+	ft_putstr(ft_strdup("ft_strdup = Ok"));
+	ft_putchar('\n');
+	
+	ft_strncpy(x, "ft_strncpy = Ok", 20);
+	ft_putstr(x);
+	ft_putchar('\n');
 	
 	return (0);
 }

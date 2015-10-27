@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memchr.c                                        :+:      :+:    :+:   */
+/*   ft_strdup.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: savram <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -11,19 +11,24 @@
 /* ************************************************************************** */
 
 #include <string.h>
+#include <stdlib.h>
+#include "libft.h"
 
-void	*ft_memchr(const void *s, int c, size_t n)
+char	*ft_strdup(const char *s1)
 {
-	char	*sir;
-	size_t	i;
+	char	*str;
 	
-	sir = (char*)s;
-	i = 0;
-	while (i < n)
+	str = NULL;
+	str = (char*) malloc (sizeof(*s1) + 1);
+	if (str != NULL)
 	{
-		if (sir[i] == (char)c)
-			return (&sir[i]);
-		i++;	
+		ft_strcpy(str, s1);
+		return (str);
 	}
-	return (NULL);
+	else
+	{
+		ft_putstr("ERROR: Storage space available is insufficient.");
+		ft_putchar('\n');
+		return NULL;
+	}
 }

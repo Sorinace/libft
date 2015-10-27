@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memchr.c                                        :+:      :+:    :+:   */
+/*   ft_strcpy.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: savram <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -10,20 +10,16 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <string.h>
-
-void	*ft_memchr(const void *s, int c, size_t n)
+char	*ft_strcpy(char *dest, const char *src)
 {
-	char	*sir;
-	size_t	i;
+	int	i;
 	
-	sir = (char*)s;
 	i = 0;
-	while (i < n)
+	while (src[i])
 	{
-		if (sir[i] == (char)c)
-			return (&sir[i]);
-		i++;	
+		dest[i] = src[i];
+		i++;
 	}
-	return (NULL);
+	dest[i] = '\0';
+	return (dest);
 }

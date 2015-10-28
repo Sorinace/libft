@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strncpy.c                                       :+:      :+:    :+:   */
+/*   ft_strclr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: savram <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -10,22 +10,14 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <string.h>
-
-char	*ft_strncpy(char *dest, const char *src, size_t n)
+void	ft_strclr(char *s)
 {
-	size_t	i;
+	int     i;
 	
 	i = 0;
-	while (src[i] && i < n)
+	while (s[i])
 	{
-		dest[i] = src[i];
-		i++;
+	    s[i] = '\0';
+	    i++;   
 	}
-	while (i < n)
-	{
-		dest[i] = '\0';
-		i++;
-	}
-	return (dest);
 }

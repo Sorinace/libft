@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strncpy.c                                       :+:      :+:    :+:   */
+/*   ft_strncmp.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: savram <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -12,20 +12,16 @@
 
 #include <string.h>
 
-char	*ft_strncpy(char *dest, const char *src, size_t n)
+int		ft_strncmp(const char *s1, const char *s2, size_t n)
 {
 	size_t	i;
 	
 	i = 0;
-	while (src[i] && i < n)
+	while (s1[i] && i < n)
 	{
-		dest[i] = src[i];
+		if (s1[i] != s2[i])
+			return (s1[i] - s2[i]);
 		i++;
 	}
-	while (i < n)
-	{
-		dest[i] = '\0';
-		i++;
-	}
-	return (dest);
+	return (0);
 }

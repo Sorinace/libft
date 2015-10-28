@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strncpy.c                                       :+:      :+:    :+:   */
+/*   ft_strstr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: savram <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -12,20 +12,23 @@
 
 #include <string.h>
 
-char	*ft_strncpy(char *dest, const char *src, size_t n)
+char	*ft_strstr(const char *haystack, const char *needle)
 {
-	size_t	i;
-	
-	i = 0;
-	while (src[i] && i < n)
+	const char	*first;
+	int			i;
+
+	first = haystack;
+	while (first[0])
 	{
-		dest[i] = src[i];
-		i++;
+		 if (first[0] == needle[0])
+		 {
+		 	i = 0;
+		 	while (first[i] == needle[i] && needle[i])
+		 		i++;
+		 	if (!needle[i])
+		 		return ((char*)first);
+		 }
+		 first++;
 	}
-	while (i < n)
-	{
-		dest[i] = '\0';
-		i++;
-	}
-	return (dest);
+	return (NULL);
 }

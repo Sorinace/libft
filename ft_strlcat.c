@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strncpy.c                                       :+:      :+:    :+:   */
+/*   ft_strlcat.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: savram <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -11,21 +11,28 @@
 /* ************************************************************************** */
 
 #include <string.h>
+#include "libft.h"
 
-char	*ft_strncpy(char *dest, const char *src, size_t n)
+size_t	ft_strlcat(char *dest, const char *src, size_t size)
 {
-	size_t	i;
+	int		i;
+	size_t	j;
+	size_t	n;
 	
-	i = 0;
-	while (src[i] && i < n)
+	n = size - sizeof(dest) - 1;
+	if (n > 0)
 	{
-		dest[i] = src[i];
-		i++;
-	}
-	while (i < n)
-	{
+		i = 0;
+		while (dest[i])
+			i++;
+		j = 0;
+		while (src[j] && j < n)
+		{
+			dest[i] = src[j];
+			i++;
+			j++;
+		}
 		dest[i] = '\0';
-		i++;
 	}
-	return (dest);
+	return (ft_strlen(dest));
 }

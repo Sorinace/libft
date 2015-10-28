@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strncpy.c                                       :+:      :+:    :+:   */
+/*   ft_atoi.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: savram <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -10,22 +10,17 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <string.h>
-
-char	*ft_strncpy(char *dest, const char *src, size_t n)
+int		ft_atoi(const char *nptr)
 {
-	size_t	i;
+	int		i;
+	int		nr;
 	
 	i = 0;
-	while (src[i] && i < n)
+	nr = 0;
+	while (nptr[i] >= '0' && nptr[i] <= '9')
 	{
-		dest[i] = src[i];
+		nr = nr * 10 + (nptr[i] - '0');
 		i++;
 	}
-	while (i < n)
-	{
-		dest[i] = '\0';
-		i++;
-	}
-	return (dest);
+	return (nr);
 }

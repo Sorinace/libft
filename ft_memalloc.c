@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strncpy.c                                       :+:      :+:    :+:   */
+/*   ft_memalloc.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: savram <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -11,21 +11,16 @@
 /* ************************************************************************** */
 
 #include <string.h>
+#include <stdlib.h>
+#include "libft.h"
 
-char	*ft_strncpy(char *dest, const char *src, size_t n)
+void	*ft_memalloc(size_t size)
 {
-	size_t	i;
+	char	*str;
 	
-	i = 0;
-	while (src[i] && i < n)
-	{
-		dest[i] = src[i];
-		i++;
-	}
-	while (i < n)
-	{
-		dest[i] = '\0';
-		i++;
-	}
-	return (dest);
+	str = NULL;
+	str = (char*) malloc (size);
+	if (str != NULL)
+		ft_memset(str, '0', size);
+	return (str);
 }

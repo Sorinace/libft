@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strcmp.c                                        :+:      :+:    :+:   */
+/*   ft_putnbr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: savram <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -10,24 +10,24 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-int		ft_strcmp(const char *s1, const char *s2)
+#include "libft.h"
+
+void	ft_putnbr(int n)
 {
-	int		i;
-	
-	i = 0;
-	while (s1[i] && s2[i])
+	int	divid;
+
+	if (n < 0)
 	{
-		if (s1[i] != s2[i])
-			return (s1[i] - s2[i]);
-		i++;
+		ft_putchar('-');
+		n = -1 * n;
 	}
-	if (i == 0)
+	divid = 1;
+	while (n > divid * 10)
+		divid = divid * 10;
+	while (n > 0)
 	{
-		if (s1[i] != '\0' || s2[i] != '\0')
-			return (s1[i] - s2[i]); 
+		ft_putchar('0' + n / divid);
+		n = n % divid;
+		divid = divid / 10;
 	}
-	if (s1[i] == '\0' && s2[i] == '\0')
-		return (0);
-	else
-		return (s1[i] - s2[i]);
 }

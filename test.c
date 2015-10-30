@@ -6,10 +6,12 @@
 
 int	main (void)
 {
+	int		i;
 	char	x[20];
 	char	y[30];
 	char	*z;
 	char	*mem;
+	char	**test;
 	
 	ft_strcpy(x, "ft_strlen = Ok");
 	if (ft_strlen("sorin") == ft_strlen("sorin"))
@@ -100,7 +102,7 @@ int	main (void)
 		ft_putstr("ft_strcmp = Ok");
 	ft_putchar('\n');
 	
-	if (ft_strncmp("sorinut", "soru", 3) == 0)
+	if (ft_strncmp("sorinut", "sori", 4) == 0)
 		ft_putstr("ft_strncmp = Ok");
 	ft_putchar('\n');
 	
@@ -128,7 +130,6 @@ int	main (void)
 		ft_putstr("ft_isprint = Ok");
 	ft_putchar('\n');
 	
-
 	if (ft_toupper('a') == 'A')
 		ft_putstr("ft_toupper = Ok");
 	ft_putchar('\n');
@@ -173,6 +174,73 @@ int	main (void)
 	ft_putstr(x);
 	ft_putchar('\n');
 	
-	//printf("daca e ok e %d\n", isalpha('o'));
+	void downi (unsigned int i, char *c)
+	{
+		if(ft_isalpha(*c) != 0 && i < 11)
+			*c = *c + 32;
+	}
+	ft_strcpy(x, "FT_STRITERI = OK");
+	ft_striteri(x, &downi);
+	ft_putstr(x);
+	ft_putchar('\n');
+	
+	char map (char c)
+	{
+		if(ft_isalpha(c) != 0)
+			return (c + 32);
+		else
+			return (c);
+	}
+	ft_strcpy(x, "FT_STRMAP = OK");
+	ft_putstr(ft_strmap(x, &map));
+	ft_putchar('\n');
+	
+	char mapi (unsigned int i, char c)
+	{
+		if(ft_isalpha(c) != 0 && i < 10)
+			return (c + 32);
+		else
+			return (c);
+	}
+	ft_strcpy(x, "FT_STRMAPI = OK");
+	ft_putstr(ft_strmapi(x, &mapi));
+	ft_putchar('\n');
+	
+	if (ft_strequ("sorin", "sorin") == 1)
+		ft_putstr("ft_strequ = Ok");
+	ft_putchar('\n');
+	
+	if (ft_strnequ("sorin", "sor12", 3) == 1)
+		ft_putstr("ft_strnequ = Ok");
+	ft_putchar('\n');
+	
+	
+	ft_strcpy(x, "ftyzabft_strsub = OK");
+	ft_putstr(ft_strsub(x, 6, 14));
+	ft_putchar('\n');
+	
+	ft_strcpy(x, "ft_strjoin ");
+	ft_strcpy(y, "= OK");
+	ft_putendl(ft_strjoin(x, y));
+
+	
+	ft_strcpy(x, "	 	ft_strtrim = OK     	");
+	ft_putendl(ft_strtrim(x));
+
+	ft_putnbr(-123456789);
+	ft_putchar('\n');
+	
+	ft_putendl(ft_itoa(-123456789));
+	
+	ft_strcpy(x, "unu** doi***  trei*ft_strsplit = Ok");
+	test = ft_strsplit(x, '*');
+	i = 0;
+	while (test[i])
+	{
+		ft_putendl(test[i]);
+		i++;
+	}
+		
+
 	return (0);
 }

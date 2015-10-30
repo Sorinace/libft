@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strcmp.c                                        :+:      :+:    :+:   */
+/*   ft_itoa.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: savram <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -10,24 +10,53 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-int		ft_strcmp(const char *s1, const char *s2)
+#include <stdlib.h>
+
+char	*ft_itoa_str(char c, int i, int n, int divid)
 {
-	int		i;
+	char	*str;
 	
-	i = 0;
-	while (s1[i] && s2[i])
+	str = NULL;
+	str = (char*) malloc (i + 1);
+	if (str != NULL)
 	{
-		if (s1[i] != s2[i])
-			return (s1[i] - s2[i]);
+		i = 0;
+		if (c == '-')
+		{
+			str[i] = c;
+			i++;
+		}
+		while (n > 0)
+		{
+			str[i] = '0' + n / divid;
+			n = n % divid;
+			divid = divid / 10;
+			i++;
+		}
+		str[i] = '\0';
+	}
+	return (str);	
+}
+
+char	*ft_itoa(int n)
+{
+	char	c;
+	int		divid;
+	int		i;
+
+	i = 0;
+	c = '+';
+	if (n < 0)
+	{
+		c = '-';
+		n = -1 * n;
 		i++;
 	}
-	if (i == 0)
+	divid = 1;
+	while (n > divid * 10)
 	{
-		if (s1[i] != '\0' || s2[i] != '\0')
-			return (s1[i] - s2[i]); 
+		divid = divid * 10;
+		i++;	
 	}
-	if (s1[i] == '\0' && s2[i] == '\0')
-		return (0);
-	else
-		return (s1[i] - s2[i]);
+	return (ft_itoa_str(c, i, n, divid));
 }

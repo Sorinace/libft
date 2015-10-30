@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strcmp.c                                        :+:      :+:    :+:   */
+/*   ft_strtrim.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: savram <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -10,24 +10,34 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-int		ft_strcmp(const char *s1, const char *s2)
+#include <stdlib.h>
+
+char	*ft_strtrim(char const *s)
 {
 	int		i;
+	int		temp;
+	char	*str;
 	
-	i = 0;
-	while (s1[i] && s2[i])
+	str = NULL;
+	str = (char*) malloc (sizeof(s) + 1);
+	if (str != NULL)
 	{
-		if (s1[i] != s2[i])
-			return (s1[i] - s2[i]);
-		i++;
+		i = 0;
+		while (s[i] == ' ' || s[i] == '\t' || s[i] == '\n')
+			i++;
+		temp = i;
+		while (s[i])
+		{
+			str[i - temp] = s[i];
+			i++;
+		}
+		str[i] = '\0';
+		i--;
+		while (s[i] == ' ' || s[i] == '\t' || s[i] == '\n')
+		{
+			str[i - temp] = '\0';
+			i--;
+		}
 	}
-	if (i == 0)
-	{
-		if (s1[i] != '\0' || s2[i] != '\0')
-			return (s1[i] - s2[i]); 
-	}
-	if (s1[i] == '\0' && s2[i] == '\0')
-		return (0);
-	else
-		return (s1[i] - s2[i]);
+	return (str);
 }

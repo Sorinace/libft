@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strcmp.c                                        :+:      :+:    :+:   */
+/*   ft_strsub.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: savram <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -10,24 +10,24 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-int		ft_strcmp(const char *s1, const char *s2)
+#include <stdlib.h>
+
+char	*ft_strsub(char const *s, unsigned int start, size_t len)
 {
-	int		i;
+	size_t	i;
+	char	*str;
 	
-	i = 0;
-	while (s1[i] && s2[i])
+	str = NULL;
+	str = (char*) malloc (len +1);
+	if (str != NULL)
 	{
-		if (s1[i] != s2[i])
-			return (s1[i] - s2[i]);
-		i++;
+		i = 0;
+		while (i < len)
+		{
+			str[i] = s[i + start];
+			i++;
+		}
+		str[i] = '\0';
 	}
-	if (i == 0)
-	{
-		if (s1[i] != '\0' || s2[i] != '\0')
-			return (s1[i] - s2[i]); 
-	}
-	if (s1[i] == '\0' && s2[i] == '\0')
-		return (0);
-	else
-		return (s1[i] - s2[i]);
+	return (str);
 }

@@ -22,9 +22,9 @@ void	ft_putnbr_fd(int n, int fd)
 		n = -1 * n;
 	}
 	divid = 1;
-	while (n > divid * 10)
+	while (n >= divid * 10)
 		divid = divid * 10;
-	while (n > 0)
+	while (divid > 0)
 	{
 		ft_putchar_fd('0' + n / divid, fd);
 		n = n % divid;

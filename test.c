@@ -3,6 +3,57 @@
 #include <stdio.h>
 #include "libft.h"
 #include <ctype.h>
+#include <sys/types.h>
+#include <sys/stat.h>
+#include <fcntl.h>
+
+void down (char *c)
+{
+	if(ft_isalpha(*c) != 0)
+		*c = *c + 32;
+}
+
+void downi (unsigned int i, char *c)
+{
+	if(ft_isalpha(*c) != 0 && i < 11)
+		*c = *c + 32;
+}
+
+char map (char c)
+{
+	if(ft_isalpha(c) != 0)
+		return (c + 32);
+	else
+		return (c);
+}
+	
+char mapi (unsigned int i, char c)
+{
+	if(ft_isalpha(c) != 0 && i < 10)
+	return (c + 32);
+	else
+		return (c);
+}	
+
+void	del(void *a, size_t b)
+{
+	if (a != NULL)
+		a = NULL;
+	if (b != 0)
+	b = 0;
+}
+
+void	change(t_list *elem)
+{
+	if (elem->content != NULL)
+		elem->content = "ft_lstiter = OK";
+}
+
+t_list	*change2(t_list *elem)
+{
+	ft_memcpy(elem->content, "ft_lstmap = OK", 15);
+	return(elem);
+}
 
 int	main (void)
 {
@@ -12,7 +63,13 @@ int	main (void)
 	char	*z;
 	char	*mem;
 	char	**test;
+	int		fd;
+	t_list	*list;
+	t_list	*nod;
+	t_list	*nod2;
 	
+	fd = open("test.txt", O_WRONLY);
+
 	ft_strcpy(x, "ft_strlen = Ok");
 	if (ft_strlen("sorin") == ft_strlen("sorin"))
 		ft_putstr(x);
@@ -58,7 +115,8 @@ int	main (void)
 	
 	ft_strcpy(x, "Sorin 5");
 	ft_strcpy(y, "Sorin 2");
-	printf("Rezultatul ft_memcmp() este %d sau este %d\n", memcmp(x, y, 7), ft_memcmp(x, y, 7));
+	if (ft_memcmp(x, y , 6) == 0)
+	ft_putendl("ft_memcmp = Ok");
 	
 	ft_putstr(ft_strdup("ft_strdup = Ok"));
 	ft_putchar('\n');
@@ -164,44 +222,20 @@ int	main (void)
 		ft_putstr("ft_strclr = Ok");
 	ft_putchar('\n');
 	
-	void down (char *c)
-	{
-		if(ft_isalpha(*c) != 0)
-			*c = *c + 32;
-	}
 	ft_strcpy(x, "FT_STRITER = OK");
 	ft_striter(x, &down);
 	ft_putstr(x);
 	ft_putchar('\n');
 	
-	void downi (unsigned int i, char *c)
-	{
-		if(ft_isalpha(*c) != 0 && i < 11)
-			*c = *c + 32;
-	}
 	ft_strcpy(x, "FT_STRITERI = OK");
 	ft_striteri(x, &downi);
 	ft_putstr(x);
 	ft_putchar('\n');
 	
-	char map (char c)
-	{
-		if(ft_isalpha(c) != 0)
-			return (c + 32);
-		else
-			return (c);
-	}
 	ft_strcpy(x, "FT_STRMAP = OK");
 	ft_putstr(ft_strmap(x, &map));
 	ft_putchar('\n');
 	
-	char mapi (unsigned int i, char c)
-	{
-		if(ft_isalpha(c) != 0 && i < 10)
-			return (c + 32);
-		else
-			return (c);
-	}
 	ft_strcpy(x, "FT_STRMAPI = OK");
 	ft_putstr(ft_strmapi(x, &mapi));
 	ft_putchar('\n');
@@ -227,7 +261,7 @@ int	main (void)
 	ft_strcpy(x, "	 	ft_strtrim = OK     	");
 	ft_putendl(ft_strtrim(x));
 
-	ft_putnbr(-123456789);
+	ft_putnbr(-100000000);
 	ft_putchar('\n');
 	
 	ft_putendl(ft_itoa(-123456789));
@@ -240,7 +274,42 @@ int	main (void)
 		ft_putendl(test[i]);
 		i++;
 	}
+	
+	ft_putstr_fd("ft_putchar_fd = Ok", fd);
+	ft_putchar_fd('\n', fd);
+	ft_putstr_fd("ft_putstr_fd = Ok", fd);
+	ft_putchar_fd('\n', fd);
+	ft_putendl_fd("ft_putendl_fd = Ok", fd);
+	ft_putstr_fd("ft_putnbr_fd = ", fd);
+	ft_putnbr_fd(-1000, fd);
+	ft_putchar_fd('\n', fd);
+	
+	list = ft_lstnew("ft_lstnew = OK", 15);
+	ft_putendl(list->content);
+	//ft_putendl((char*)ft_lstnew("ft_lstnew = OK", 30)->content);
+	ft_lstdelone(&list, &del);
+	if (list == NULL)
+		ft_putendl("ft_lstdelone = OK");
 		
-
+	list = ft_lstnew("ft_lstnew = OK", 15);
+	ft_lstdel(&list, &del);
+	if (list == NULL)
+		ft_putendl("ft_lstdel = OK");
+	
+	list = ft_lstnew("ft_lstadd = OK", 15);
+	nod = ft_lstnew("ft_lsterror = NOK", 18);
+	nod2 = ft_lstnew("ft_lsterror = NOK", 18);
+	ft_lstadd(&list, nod);
+	ft_lstadd(&list, nod2);
+	ft_putendl((char*)list->next->content);
+	
+	ft_lstiter(list, &change);
+	ft_putendl((char*)list->next->content);
+	
+	nod = ft_lstmap(list, &change2);
+	if (nod != NULL)
+	ft_putendl((char*)nod->next->next->content);
+			
+	close(fd);
 	return (0);
 }

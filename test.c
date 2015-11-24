@@ -268,6 +268,8 @@ int	main (void)
 	
 	ft_strcpy(x, "unu** doi***  trei*ft_strsplit = Ok");
 	test = ft_strsplit(x, '*');
+	if (test[0])
+		ft_putendl("unu** doi***  trei*ft_strsplit = Ok");
 	i = 0;
 	while (test[i])
 	{
@@ -297,7 +299,7 @@ int	main (void)
 		ft_putendl("ft_lstdel = OK");
 	
 	list = ft_lstnew("ft_lstadd = OK", 15);
-	nod = ft_lstnew("ft_lsterror = NOK", 18);
+	nod = ft_lstnew("ft_lsterror = OK", 18);
 	nod2 = ft_lstnew("ft_lsterror = NOK", 18);
 	ft_lstadd(&list, nod);
 	ft_lstadd(&list, nod2);

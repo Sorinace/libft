@@ -5,14 +5,14 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: savram <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2015/10/21 19:18:43 by savram            #+#    #+#             */
-/*   Updated: 2015/10/25 19:19:31 by savram           ###   ########.fr       */
+/*   Created: 2015/10/31 13:56:27 by savram            #+#    #+#             */
+/*   Updated: 2015/10/31 13:57:25 by savram           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <unistd.h>
 
-void    ft_putchar(char c)
+void	ft_putchar(char c)
 {
-	write(1,&c,1);
+	write(1, &c, 1);
 }

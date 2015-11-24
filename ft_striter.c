@@ -5,19 +5,19 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: savram <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2015/10/21 19:18:43 by savram            #+#    #+#             */
-/*   Updated: 2015/10/25 19:19:31 by savram           ###   ########.fr       */
+/*   Created: 2015/10/31 14:21:59 by savram            #+#    #+#             */
+/*   Updated: 2015/10/31 14:24:12 by savram           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-void	ft_striter(char *s, void(*f)(char *))
+void	ft_striter(char *s, void (*f)(char *))
 {
-	int     i;
-	
+	int		i;
+
 	i = 0;
 	while (s[i])
 	{
-	    f(&s[i]);
-	    i++;   
+		f(&s[i]);
+		i++;
 	}
 }

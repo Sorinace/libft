@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: savram <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2015/10/21 19:18:43 by savram            #+#    #+#             */
-/*   Updated: 2015/10/25 19:19:31 by savram           ###   ########.fr       */
+/*   Created: 2015/10/31 14:28:08 by savram            #+#    #+#             */
+/*   Updated: 2015/10/31 14:29:11 by savram           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ size_t	ft_strlcat(char *dest, const char *src, size_t size)
 	int		i;
 	size_t	j;
 	size_t	n;
-	
+
 	n = size - sizeof(dest) - 1;
 	if (n > 0)
 	{

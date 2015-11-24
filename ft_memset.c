@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: savram <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2015/10/21 19:18:43 by savram            #+#    #+#             */
-/*   Updated: 2015/10/25 19:19:31 by savram           ###   ########.fr       */
+/*   Created: 2015/10/31 13:52:05 by savram            #+#    #+#             */
+/*   Updated: 2015/10/31 13:53:51 by savram           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ void	*ft_memset(void *s, int c, size_t n)
 	size_t	i;
 	char	*str;
 	char	car;
-	
+
 	str = (char*)s;
 	i = 0;
 	car = (char)c;

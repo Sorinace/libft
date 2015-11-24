@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: savram <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2015/10/21 19:18:43 by savram            #+#    #+#             */
-/*   Updated: 2015/10/25 19:19:31 by savram           ###   ########.fr       */
+/*   Created: 2015/10/31 13:39:10 by savram            #+#    #+#             */
+/*   Updated: 2015/10/31 13:41:04 by savram           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,9 +15,9 @@
 char	*ft_itoa_str(char c, int i, int n, int divid)
 {
 	char	*str;
-	
+
 	str = NULL;
-	str = (char*) malloc (i + 1);
+	str = (char*)malloc(i + 1);
 	if (str != NULL)
 	{
 		i = 0;
@@ -35,7 +35,7 @@ char	*ft_itoa_str(char c, int i, int n, int divid)
 		}
 		str[i] = '\0';
 	}
-	return (str);	
+	return (str);
 }
 
 char	*ft_itoa(int n)
@@ -56,7 +56,7 @@ char	*ft_itoa(int n)
 	while (n > divid * 10)
 	{
 		divid = divid * 10;
-		i++;	
+		i++;
 	}
 	return (ft_itoa_str(c, i, n, divid));
 }

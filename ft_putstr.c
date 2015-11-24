@@ -5,17 +5,17 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: savram <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2015/10/21 19:18:43 by savram            #+#    #+#             */
-/*   Updated: 2015/10/25 19:19:31 by savram           ###   ########.fr       */
+/*   Created: 2015/10/31 14:08:12 by savram            #+#    #+#             */
+/*   Updated: 2015/10/31 14:10:20 by savram           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void ft_putstr(char const *s)
+void	ft_putstr(char const *s)
 {
 	int		i;
-	
+
 	if (s != NULL)
 	{
 		i = 0;

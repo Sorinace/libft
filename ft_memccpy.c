@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: savram <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2015/10/21 19:18:43 by savram            #+#    #+#             */
-/*   Updated: 2015/10/25 19:19:31 by savram           ###   ########.fr       */
+/*   Created: 2015/10/31 13:43:43 by savram            #+#    #+#             */
+/*   Updated: 2015/10/31 13:44:55 by savram           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ void	*ft_memccpy(void *dest, const void *src, int c, size_t n)
 	char	*de;
 	char	*sr;
 	size_t	i;
-	
+
 	de = (char*)dest;
 	sr = (char*)src;
 	i = 0;
@@ -26,7 +26,7 @@ void	*ft_memccpy(void *dest, const void *src, int c, size_t n)
 		de[i] = sr[i];
 		if (sr[i] == (char)c)
 			return (&de[i + 1]);
-		i++;	
+		i++;
 	}
 	return (NULL);
 }

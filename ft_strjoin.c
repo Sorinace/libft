@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: savram <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2015/10/21 19:18:43 by savram            #+#    #+#             */
-/*   Updated: 2015/10/25 19:19:31 by savram           ###   ########.fr       */
+/*   Created: 2015/10/31 14:26:19 by savram            #+#    #+#             */
+/*   Updated: 2015/10/31 14:27:36 by savram           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,9 +17,9 @@ char	*ft_strjoin(char const *s1, char const *s2)
 	int		i;
 	int		j;
 	char	*str;
-	
+
 	str = NULL;
-	str = (char*) malloc (sizeof(s1) + sizeof(s2) + 1);
+	str = (char*)malloc(sizeof(s1) + sizeof(s2) + 1);
 	if (str != NULL)
 	{
 		i = 0;

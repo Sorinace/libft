@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: savram <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2015/10/21 19:18:43 by savram            #+#    #+#             */
-/*   Updated: 2015/10/25 19:19:31 by savram           ###   ########.fr       */
+/*   Created: 2015/10/31 14:43:10 by savram            #+#    #+#             */
+/*   Updated: 2015/10/31 14:43:50 by savram           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,12 +21,11 @@ char	*ft_strrchr(const char *s, int c)
 	last = NULL;
 	while (str[0])
 	{
-		 if (str[0] == (char)c)
-		 	last = str;
-		 str++;
+		if (str[0] == (char)c)
+			last = str;
+		str++;
 	}
 	if (str[0] == (char)c)
-	 	last = str;
-	 	
+		last = str;
 	return ((char*)last);
 }

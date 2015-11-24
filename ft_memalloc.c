@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: savram <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2015/10/21 19:18:43 by savram            #+#    #+#             */
-/*   Updated: 2015/10/25 19:19:31 by savram           ###   ########.fr       */
+/*   Created: 2015/10/31 13:42:08 by savram            #+#    #+#             */
+/*   Updated: 2015/10/31 13:42:55 by savram           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,9 +17,9 @@
 void	*ft_memalloc(size_t size)
 {
 	char	*str;
-	
+
 	str = NULL;
-	str = (char*) malloc (size);
+	str = (char*)malloc(size);
 	if (str != NULL)
 		ft_memset(str, '0', size);
 	return (str);

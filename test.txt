@@ -1,4 +1,0 @@
-ft_putchar_fd = Ok
-ft_putstr_fd = Ok
-ft_putendl_fd = Ok
-ft_putnbr_fd = -1000

@@ -6,28 +6,22 @@
 /*   By: savram <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/10/31 14:14:23 by savram            #+#    #+#             */
-/*   Updated: 2015/10/31 14:15:20 by savram           ###   ########.fr       */
+/*   Updated: 2015/12/14 18:50:01 by savram           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int		ft_strcmp(const char *s1, const char *s2)
+int	ft_strcmp(const unsigned char *s1, const unsigned char *s2)
 {
-	int		i;
-
-	i = 0;
-	while (s1[i] && s2[i])
+	if (*s1 == '\0' || *s2 == '\0')
+		return (*s1 - *s2);
+	while (*s1 || *s2)
 	{
-		if (s1[i] != s2[i])
-			return (s1[i] - s2[i]);
-		i++;
+		if (*s1 < *s2)
+			return (*s1 - *s2);
+		if (*s1 > *s2)
+			return (*s1 - *s2);
+		s1++;
+		s2++;
 	}
-	if (i == 0)
-	{
-		if (s1[i] != '\0' || s2[i] != '\0')
-			return (s1[i] - s2[i]);
-	}
-	if (s1[i] == '\0' && s2[i] == '\0')
-		return (0);
-	else
-		return (s1[i] - s2[i]);
+	return (0);
 }

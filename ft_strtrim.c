@@ -6,46 +6,36 @@
 /*   By: savram <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/10/31 14:49:45 by savram            #+#    #+#             */
-/*   Updated: 2015/10/31 15:04:09 by savram           ###   ########.fr       */
+/*   Updated: 2015/12/14 18:07:16 by savram           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "libft.h"
 #include <stdlib.h>
-
-int		ft_number(char const *s)
-{
-	int i;
-
-	i = 0;
-	while (s[i] == ' ' || s[i] == '\t' || s[i] == '\n')
-		i++;
-	return (i);
-}
 
 char	*ft_strtrim(char const *s)
 {
 	int		i;
-	int		temp;
+	int		len;
 	char	*str;
 
-	str = NULL;
-	str = (char*)malloc(sizeof(s) + 1);
-	if (str != NULL)
-	{
-		i = ft_number(s);
-		temp = i;
-		while (s[i])
-		{
-			str[i - temp] = s[i];
-			i++;
-		}
-		str[i] = '\0';
-		i--;
-		while (s[i] == ' ' || s[i] == '\t' || s[i] == '\n')
-		{
-			str[i - temp] = '\0';
-			i--;
-		}
-	}
+	if (s == NULL)
+		return (NULL);
+	len = ft_strlen(s);
+	while (s[len - 1] == ' ' || s[len - 1] == '\t' || s[len - 1] == '\n')
+		len--;
+	i = -1;
+	while (s[++i] == ' ' || s[i] == '\t' || s[i] == '\n')
+		len--;
+	if (len <= 0)
+		len = 0;
+	str = (char*)malloc(sizeof(char) * (len + 1));
+	if (str == NULL)
+		return (NULL);
+	s += i;
+	i = -1;
+	while (++i < len)
+		str[i] = *s++;
+	str[i] = '\0';
 	return (str);
 }

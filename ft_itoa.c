@@ -6,57 +6,47 @@
 /*   By: savram <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/10/31 13:39:10 by savram            #+#    #+#             */
-/*   Updated: 2015/10/31 13:41:04 by savram           ###   ########.fr       */
+/*   Updated: 2015/12/14 18:00:29 by savram           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "libft.h"
 #include <stdlib.h>
 
-char	*ft_itoa_str(char c, int i, int n, int divid)
+void	itoa_isnegative(int *n, int *negative)
 {
-	char	*str;
-
-	str = NULL;
-	str = (char*)malloc(i + 1);
-	if (str != NULL)
+	if (*n < 0)
 	{
-		i = 0;
-		if (c == '-')
-		{
-			str[i] = c;
-			i++;
-		}
-		while (n > 0)
-		{
-			str[i] = '0' + n / divid;
-			n = n % divid;
-			divid = divid / 10;
-			i++;
-		}
-		str[i] = '\0';
+		*n *= -1;
+		*negative = 1;
 	}
-	return (str);
 }
 
 char	*ft_itoa(int n)
 {
-	char	c;
-	int		divid;
-	int		i;
+	int		tmpn;
+	int		len;
+	int		negative;
+	char	*str;
 
-	i = 0;
-	c = '+';
-	if (n < 0)
+	if (n == -2147483648)
+		return (ft_strdup("-2147483648"));
+	tmpn = n;
+	len = 2;
+	negative = 0;
+	itoa_isnegative(&n, &negative);
+	while (tmpn /= 10)
+		len++;
+	len += negative;
+	if ((str = (char*)malloc(sizeof(char) * len)) == NULL)
+		return (NULL);
+	str[--len] = '\0';
+	while (len--)
 	{
-		c = '-';
-		n = -1 * n;
-		i++;
+		str[len] = n % 10 + '0';
+		n = n / 10;
 	}
-	divid = 1;
-	while (n > divid * 10)
-	{
-		divid = divid * 10;
-		i++;
-	}
-	return (ft_itoa_str(c, i, n, divid));
+	if (negative)
+		str[0] = '-';
+	return (str);
 }
